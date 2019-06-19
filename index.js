@@ -13,33 +13,45 @@ for(var i = 0; i<amigos.length;i++){
             amigos[i]);
             artefacto = parseInt(artefacto)
         }while(artefacto < 1 || artefacto > 100)
+
+        
         
         puntosArtefactosPorAmigo[i] += artefacto;
 
-        //alert("el total de puntos va en "+
-        //puntosArtefactosPorAmigo[i]);
-
     }
-    
     sumaTotal += puntosArtefactosPorAmigo[i];
 
+    if(puntosArtefactosPorAmigo[i] >= 250){
+        document.write("<h3> Se cumplió la meta de los 250 puntos para: " + amigos[i]);    
+    }else{
+        document.write("<h3> No se cumplió la meta de los 250 puntos para: " + amigos[i]);
+    }
+
+  
 }
+
 
 
 for(var k = 0; k < puntosArtefactosPorAmigo.length; k++){
     document.write("<h3>Los puntos que recogió "+
     amigos[k]+" fueron en total "
     + puntosArtefactosPorAmigo[k]);
-
 }
 
 for(var p = 0; p < totalPorcentaje.length; p++){
-
     totalPorcentaje[p] = puntosArtefactosPorAmigo[p] * 100 / sumaTotal;
-    document.write("<h3> porcentaje: " + totalPorcentaje[p]);
-    
+    document.write("<h3> porcentaje: " + totalPorcentaje[p]);  
 }
 
+if (sumaTotal >= totalPuntos){
+    document.write("<h1> ¡WILL VIVE!");
+}else{
+    document.write("<h1> Sigue intentando, condenaste el pueblo");
+}
+
+document.write("<h2> La suma total de los artefactos mágicos es de: " + sumaTotal);
 
 
-document.write("<h3> La suma total es de: " + sumaTotal);
+
+
+
